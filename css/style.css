@@ -531,6 +531,21 @@ main {
 .footer-dev { margin: 0; text-decoration: underline; }
 .footer-bottom p { margin: 0; }
 
+/* ===== line reveal (mask + slide-up on load) ===== */
+
+[data-reveal-lines] .line-mask {
+  display: block;
+  overflow: hidden;
+}
+[data-reveal-lines] .line {
+  display: block;
+  transform: translateY(110%);
+  transition: transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+}
+[data-reveal-lines].is-revealed .line {
+  transform: translateY(0);
+}
+
 /* ===== photo hover zoom (frame stays fixed, image scales inside it) ===== */
 
 .cph:hover img,

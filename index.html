@@ -26,7 +26,10 @@
     <img class="hero__bg" src="assets/img/photo-hero-bg.png" alt="">
     <div class="hero__row">
       <div class="hero__action">
-        <h1 class="hero__title">Фотопроект о приключениях<br>компании <s>велосипедистов</s> друзей</h1>
+        <h1 class="hero__title" data-reveal-lines>
+          <span class="line-mask"><span class="line">Фотопроект о приключениях</span></span>
+          <span class="line-mask"><span class="line">компании <s>велосипедистов</s> друзей</span></span>
+        </h1>
         <a href="#" class="btn btn--light">
           <span>скачать книгу <em>.pdf</em></span>
           <img src="assets/icons/download-dark.svg" alt="">
@@ -47,7 +50,7 @@
             <p class="stat__label">километров</p>
           </div>
         </div>
-        <p class="hero__tagline">Одна общая любовь к путешествиям</p>
+        <p class="hero__tagline" data-reveal-lines><span class="line-mask"><span class="line">Одна общая любовь к путешествиям</span></span></p>
       </div>
     </div>
   </section>
@@ -249,6 +252,7 @@
 
 <script src="assets/js/vendor/lenis.min.js"></script>
 <script src="assets/js/smooth-scroll.js"></script>
+<script src="assets/js/reveal-lines.js"></script>
 <script src="assets/js/marquee.js" defer></script>
 </body>
 </html>
