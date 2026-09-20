@@ -8,45 +8,46 @@
     photoByIndex[p.getAttribute('data-team-index')] = p;
   });
 
-  // Photo i wipes away as the NEXT member's text (i + 1) scrolls into view,
-  // revealing photo i + 1 underneath. The last photo has no successor, so
-  // it just stays put once revealed.
-  const triggers = [];
+  // Photo i wipes away to reveal photo i + 1 at the exact same moment the
+  // next member's text becomes visible (same trigger as the sitewide
+  // line-mask reveal), so the photo and text for each person change
+  // together. The last photo has no successor, so it never wipes away.
+  const pairs = [];
   for (let i = 0; i < members.length - 1; i++) {
     const photo = photoByIndex[String(i)];
     const nextMember = members[i + 1];
-    if (photo && nextMember) triggers.push({ el: nextMember, photo });
+    if (photo && nextMember) pairs.push({ el: nextMember, photo });
   }
+  if (!pairs.length) return;
 
-  function clamp01(v) {
-    return Math.max(0, Math.min(1, v));
-  }
+  function setupScrollSwap() {
+    if (typeof IntersectionObserver === 'undefined') {
+      pairs.forEach(({ photo }) => photo.classList.add('is-swapped'));
+      return;
+    }
 
-  function update() {
-    const vh = window.innerHeight;
-    const triggerStart = vh * 0.7;
-
-    triggers.forEach(({ el, photo }) => {
-      const rect = el.getBoundingClientRect();
-      const progress = clamp01((triggerStart - rect.top) / (triggerStart + rect.height));
-      photo.style.clipPath = 'inset(0 0 ' + (progress * 100).toFixed(2) + '% 0)';
-    });
-  }
-
-  if (window.lenis && typeof window.lenis.on === 'function') {
-    window.lenis.on('scroll', update);
-  } else {
-    let ticking = false;
-    window.addEventListener('scroll', () => {
-      if (ticking) return;
-      ticking = true;
-      requestAnimationFrame(() => {
-        ticking = false;
-        update();
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        const pair = pairs.find((p) => p.el === entry.target);
+        if (!pair) return;
+        pair.photo.classList.add('is-swapped');
+        observer.unobserve(entry.target);
       });
-    }, { passive: true });
+    }, {
+      threshold: 0.2,
+      rootMargin: '0px 0px -10% 0px',
+    });
+
+    pairs.forEach(({ el }) => observer.observe(el));
   }
 
-  window.addEventListener('resize', update);
-  update();
+  // Same safety as the text reveal: wait for a full page load before
+  // observing, otherwise the very first intersection check can fire
+  // unreliably and swap every photo at once.
+  if (document.readyState === 'complete') {
+    setupScrollSwap();
+  } else {
+    window.addEventListener('load', setupScrollSwap);
+  }
 })();
