@@ -9,29 +9,45 @@
     });
   });
 
-  if (typeof IntersectionObserver === 'undefined') {
-    groups.forEach((group) => group.classList.add('is-revealed'));
-    return;
-  }
-
-  // Wait for at least one real render pass before observing: creating the
-  // observer and calling observe() before the document has ever been
-  // painted can make the very first intersection report unreliable, causing
-  // every target (even ones far below the fold) to fire as intersecting.
+  // Hero content is visible the moment the page opens, so it reveals right
+  // away rather than waiting on scroll position.
+  const immediateGroups = document.querySelectorAll('[data-reveal-immediate]');
   requestAnimationFrame(() => {
     requestAnimationFrame(() => {
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-          if (!entry.isIntersecting) return;
-          entry.target.classList.add('is-revealed');
-          observer.unobserve(entry.target);
-        });
-      }, {
-        threshold: 0.2,
-        rootMargin: '0px 0px -10% 0px',
-      });
-
-      groups.forEach((group) => observer.observe(group));
+      immediateGroups.forEach((group) => group.classList.add('is-revealed'));
     });
   });
+
+  const scrollGroups = document.querySelectorAll('[data-reveal-lines]:not([data-reveal-immediate])');
+  if (!scrollGroups.length) return;
+
+  function setupScrollReveal() {
+    if (typeof IntersectionObserver === 'undefined') {
+      scrollGroups.forEach((group) => group.classList.add('is-revealed'));
+      return;
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('is-revealed');
+        observer.unobserve(entry.target);
+      });
+    }, {
+      threshold: 0.2,
+      rootMargin: '0px 0px -10% 0px',
+    });
+
+    scrollGroups.forEach((group) => observer.observe(group));
+  }
+
+  // Wait for the page to fully load before wiring up scroll-triggered
+  // reveals: setting up the observer earlier (before images/fonts have
+  // settled the layout) can make its first intersection check unreliable
+  // and mark far-off-screen headings as revealed immediately.
+  if (document.readyState === 'complete') {
+    setupScrollReveal();
+  } else {
+    window.addEventListener('load', setupScrollReveal);
+  }
 })();
