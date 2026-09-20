@@ -164,19 +164,16 @@
   </section>
 
   <section class="team" id="team">
-    <div class="team__member">
-      <div class="team__text">
+    <div class="team__text-col">
+      <div class="team__member" data-team-index="0">
         <div class="team__quote-block">
           <p class="heading" data-reveal-lines><span class="line-mask"><span class="line">&#8195;&#8195;«Моя главная задача — обеспечить безопасность и комфорт нашей группы в путешествии»</span></span></p>
           <p class="team__author">© Женя — эксперт по выживанию</p>
         </div>
         <p class="body-text" data-reveal-lines><span class="line-mask"><span class="line">Взял на себя роль специалиста по разведению костра, установке палаток, приготовлению еды в лесу и спасению этой троицы в экстремальных ситуациях.</span></span></p>
       </div>
-      <div class="team__photo"><img src="assets/img/photo-zhenya.webp" alt="Женя"></div>
-    </div>
 
-    <div class="team__member">
-      <div class="team__text">
+      <div class="team__member" data-team-index="1">
         <div class="team__quote-block">
           <p class="heading" data-reveal-lines>
             <span class="line-mask"><span class="line">&#8195;&#8195;«Не посещал спортивную школу,</span></span>
@@ -191,11 +188,8 @@
           <span class="line-mask"><span class="line">марафоны на 200, 300, 400 и даже 600 километров.</span></span>
         </p>
       </div>
-      <div class="team__photo"><img src="assets/img/photo-vitalya.webp" alt="Виталя"></div>
-    </div>
 
-    <div class="team__member">
-      <div class="team__text">
+      <div class="team__member" data-team-index="2">
         <div class="team__quote-block">
           <p class="heading" data-reveal-lines>
             <span class="line-mask"><span class="line">&#8195;&#8195;«Езжу на коричневом Bianchi 1982</span></span>
@@ -206,11 +200,8 @@
         </div>
         <p class="body-text" data-reveal-lines><span class="line-mask"><span class="line">Постоянный автор смешных моментов в стиле Чарли Чаплина. Провалиться под лёд, плохо закрепить сумки, сжечь обувь — фирменные трюки.</span></span></p>
       </div>
-      <div class="team__photo"><img src="assets/img/photo-max.webp" alt="Макс"></div>
-    </div>
 
-    <div class="team__member">
-      <div class="team__text">
+      <div class="team__member" data-team-index="3">
         <div class="team__quote-block">
           <p class="heading" data-reveal-lines><span class="line-mask"><span class="line">&#8195;&#8195;«Я всегда впереди ребят. Пока мы только собираемся,я уже пристёгиваю велотуфли»</span></span></p>
           <p class="team__author">© Егор — подгоняла</p>
@@ -221,7 +212,15 @@
           <span class="line-mask"><span class="line">У меня их больше, чем у кого-либо в команде.</span></span>
         </p>
       </div>
-      <div class="team__photo"><img src="assets/img/photo-egor.webp" alt="Егор"></div>
+    </div>
+
+    <div class="team__photo-col">
+      <div class="team__photo-stack">
+        <div class="team__photo" data-team-index="0"><img src="assets/img/photo-zhenya.webp" alt="Женя"></div>
+        <div class="team__photo" data-team-index="1"><img src="assets/img/photo-vitalya.webp" alt="Виталя"></div>
+        <div class="team__photo" data-team-index="2"><img src="assets/img/photo-max.webp" alt="Макс"></div>
+        <div class="team__photo" data-team-index="3"><img src="assets/img/photo-egor.webp" alt="Егор"></div>
+      </div>
     </div>
   </section>
 
@@ -265,6 +264,7 @@
 
 <script src="assets/js/vendor/lenis.min.js"></script>
 <script src="assets/js/smooth-scroll.js"></script>
+<script src="assets/js/team-photo-scrub.js"></script>
 <script src="assets/js/reveal-lines.js"></script>
 <script src="assets/js/marquee.js" defer></script>
 </body>
