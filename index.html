@@ -7,7 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&family=Cousine:ital,wght@0,400;0,700;1,400;1,700&family=Inter+Tight:ital,wght@0,500;0,600;0,700;1,500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=2">
+<link rel="stylesheet" href="css/style.css?v=3">
 </head>
 <body>
 
@@ -165,52 +165,63 @@
 
   <section class="team" id="team">
     <div class="team__text-col">
-      <div class="team__member" data-team-index="0">
-        <div class="team__quote-block">
-          <p class="heading" data-reveal-lines><span class="line-mask"><span class="line">&#8195;&#8195;«Моя главная задача — обеспечить безопасность и комфорт нашей группы в путешествии»</span></span></p>
-          <p class="team__author">© Женя — эксперт по выживанию</p>
-        </div>
-        <p class="body-text" data-reveal-lines><span class="line-mask"><span class="line">Взял на себя роль специалиста по разведению костра, установке палаток, приготовлению еды в лесу и спасению этой троицы в экстремальных ситуациях.</span></span></p>
+      <div class="team__text-triggers">
+        <div class="team__member" data-team-index="0"></div>
+        <div class="team__member" data-team-index="1"></div>
+        <div class="team__member" data-team-index="2"></div>
+        <div class="team__member" data-team-index="3"></div>
       </div>
 
-      <div class="team__member" data-team-index="1">
-        <div class="team__quote-block">
-          <p class="heading" data-reveal-lines>
-            <span class="line-mask"><span class="line">&#8195;&#8195;«Не посещал спортивную школу,</span></span>
-            <span class="line-mask"><span class="line">но начал тренироваться вместе с друзьями</span></span>
-            <span class="line-mask"><span class="line">и вписался в их компанию»</span></span>
-          </p>
-          <p class="team__author">© Виталя — ас марафонщик</p>
-        </div>
-        <p class="body-text" data-reveal-lines>
-          <span class="line-mask"><span class="line">Стал последним, кто присоединился к команде.</span></span>
-          <span class="line-mask"><span class="line">Небольшой опыт не помешал втянуться в любительские</span></span>
-          <span class="line-mask"><span class="line">марафоны на 200, 300, 400 и даже 600 километров.</span></span>
-        </p>
-      </div>
+      <div class="team__text-sticky">
+        <div class="team__text-stack">
+          <div class="team__member-text is-current is-revealed" data-team-index="0">
+            <div class="team__quote-block">
+              <p class="heading"><span class="line-mask"><span class="line">&#8195;&#8195;«Моя главная задача — обеспечить безопасность и комфорт нашей группы в путешествии»</span></span></p>
+              <p class="team__author">© Женя — эксперт по выживанию</p>
+            </div>
+            <p class="body-text"><span class="line-mask"><span class="line">Взял на себя роль специалиста по разведению костра, установке палаток, приготовлению еды в лесу и спасению этой троицы в экстремальных ситуациях.</span></span></p>
+          </div>
 
-      <div class="team__member" data-team-index="2">
-        <div class="team__quote-block">
-          <p class="heading" data-reveal-lines>
-            <span class="line-mask"><span class="line">&#8195;&#8195;«Езжу на коричневом Bianchi 1982</span></span>
-            <span class="line-mask"><span class="line">года, потому что новое — это скучно,</span></span>
-            <span class="line-mask"><span class="line">а винтаж — это стиль жизни»</span></span>
-          </p>
-          <p class="team__author">© Макс — катастрофа</p>
-        </div>
-        <p class="body-text" data-reveal-lines><span class="line-mask"><span class="line">Постоянный автор смешных моментов в стиле Чарли Чаплина. Провалиться под лёд, плохо закрепить сумки, сжечь обувь — фирменные трюки.</span></span></p>
-      </div>
+          <div class="team__member-text" data-team-index="1">
+            <div class="team__quote-block">
+              <p class="heading">
+                <span class="line-mask"><span class="line">&#8195;&#8195;«Не посещал спортивную школу,</span></span>
+                <span class="line-mask"><span class="line">но начал тренироваться вместе с друзьями</span></span>
+                <span class="line-mask"><span class="line">и вписался в их компанию»</span></span>
+              </p>
+              <p class="team__author">© Виталя — ас марафонщик</p>
+            </div>
+            <p class="body-text">
+              <span class="line-mask"><span class="line">Стал последним, кто присоединился к команде.</span></span>
+              <span class="line-mask"><span class="line">Небольшой опыт не помешал втянуться в любительские</span></span>
+              <span class="line-mask"><span class="line">марафоны на 200, 300, 400 и даже 600 километров.</span></span>
+            </p>
+          </div>
 
-      <div class="team__member" data-team-index="3">
-        <div class="team__quote-block">
-          <p class="heading" data-reveal-lines><span class="line-mask"><span class="line">&#8195;&#8195;«Я всегда впереди ребят. Пока мы только собираемся,я уже пристёгиваю велотуфли»</span></span></p>
-          <p class="team__author">© Егор — подгоняла</p>
+          <div class="team__member-text" data-team-index="2">
+            <div class="team__quote-block">
+              <p class="heading">
+                <span class="line-mask"><span class="line">&#8195;&#8195;«Езжу на коричневом Bianchi 1982</span></span>
+                <span class="line-mask"><span class="line">года, потому что новое — это скучно,</span></span>
+                <span class="line-mask"><span class="line">а винтаж — это стиль жизни»</span></span>
+              </p>
+              <p class="team__author">© Макс — катастрофа</p>
+            </div>
+            <p class="body-text"><span class="line-mask"><span class="line">Постоянный автор смешных моментов в стиле Чарли Чаплина. Провалиться под лёд, плохо закрепить сумки, сжечь обувь — фирменные трюки.</span></span></p>
+          </div>
+
+          <div class="team__member-text" data-team-index="3">
+            <div class="team__quote-block">
+              <p class="heading"><span class="line-mask"><span class="line">&#8195;&#8195;«Я всегда впереди ребят. Пока мы только собираемся,я уже пристёгиваю велотуфли»</span></span></p>
+              <p class="team__author">© Егор — подгоняла</p>
+            </div>
+            <p class="body-text">
+              <span class="line-mask"><span class="line">В моем мире ПДД существуют где-то в параллельной</span></span>
+              <span class="line-mask"><span class="line">вселенной. Помимо скорости, я одержим велосипедами.</span></span>
+              <span class="line-mask"><span class="line">У меня их больше, чем у кого-либо в команде.</span></span>
+            </p>
+          </div>
         </div>
-        <p class="body-text" data-reveal-lines>
-          <span class="line-mask"><span class="line">В моем мире ПДД существуют где-то в параллельной</span></span>
-          <span class="line-mask"><span class="line">вселенной. Помимо скорости, я одержим велосипедами.</span></span>
-          <span class="line-mask"><span class="line">У меня их больше, чем у кого-либо в команде.</span></span>
-        </p>
       </div>
     </div>
 
@@ -264,7 +275,7 @@
 
 <script src="assets/js/vendor/lenis.min.js?v=1"></script>
 <script src="assets/js/smooth-scroll.js?v=1"></script>
-<script src="assets/js/team-photo-scrub.js?v=2"></script>
+<script src="assets/js/team-photo-scrub.js?v=3"></script>
 <script src="assets/js/reveal-lines.js?v=1"></script>
 <script src="assets/js/marquee.js?v=1" defer></script>
 </body>

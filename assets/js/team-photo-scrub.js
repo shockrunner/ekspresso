@@ -1,6 +1,7 @@
 (function () {
   const members = [...document.querySelectorAll('.team__member[data-team-index]')];
   const photos = document.querySelectorAll('.team__photo[data-team-index]');
+  const texts = document.querySelectorAll('.team__member-text[data-team-index]');
   if (!members.length || !photos.length) return;
 
   const photoByIndex = {};
@@ -8,21 +9,38 @@
     photoByIndex[p.getAttribute('data-team-index')] = p;
   });
 
-  // Photo i wipes away to reveal photo i + 1 at the exact same moment the
-  // next member's text becomes visible (same trigger as the sitewide
-  // line-mask reveal), so the photo and text for each person change
-  // together. The last photo has no successor, so it never wipes away.
+  const textByIndex = {};
+  texts.forEach((t) => {
+    textByIndex[t.getAttribute('data-team-index')] = t;
+    const lines = t.querySelectorAll('.line');
+    lines.forEach((line, i) => {
+      line.style.transitionDelay = (i * 0.08) + 's';
+    });
+  });
+
+  // Photo i wipes away and text i fades out to reveal photo/text i + 1 at
+  // the exact same moment the next member's trigger becomes visible, so
+  // the photo and text for each person change together. The last pair has
+  // no successor, so it stays put.
   const pairs = [];
   for (let i = 0; i < members.length - 1; i++) {
     const photo = photoByIndex[String(i)];
+    const outgoingText = textByIndex[String(i)];
+    const incomingText = textByIndex[String(i + 1)];
     const nextMember = members[i + 1];
-    if (photo && nextMember) pairs.push({ el: nextMember, photo });
+    if (photo && nextMember) pairs.push({ el: nextMember, photo, outgoingText, incomingText });
   }
   if (!pairs.length) return;
 
+  function applyPair(pair) {
+    pair.photo.classList.add('is-swapped');
+    if (pair.outgoingText) pair.outgoingText.classList.remove('is-current');
+    if (pair.incomingText) pair.incomingText.classList.add('is-current', 'is-revealed');
+  }
+
   function setupScrollSwap() {
     if (typeof IntersectionObserver === 'undefined') {
-      pairs.forEach(({ photo }) => photo.classList.add('is-swapped'));
+      pairs.forEach(applyPair);
       return;
     }
 
@@ -31,7 +49,7 @@
         if (!entry.isIntersecting) return;
         const pair = pairs.find((p) => p.el === entry.target);
         if (!pair) return;
-        pair.photo.classList.add('is-swapped');
+        applyPair(pair);
         observer.unobserve(entry.target);
       });
     }, {
