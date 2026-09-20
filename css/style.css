@@ -453,7 +453,7 @@ main {
 .team__text-sticky {
   grid-area: 1 / 1;
   position: sticky;
-  top: 96px;
+  top: 56px;
   align-self: start;
 }
 
@@ -502,7 +502,7 @@ main {
   width: 816px;
   flex-shrink: 0;
   position: sticky;
-  top: 96px;
+  top: 56px;
   align-self: flex-start;
 }
 
