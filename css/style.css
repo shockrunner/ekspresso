@@ -243,7 +243,7 @@ main {
   object-fit: cover;
   object-position: bottom;
 }
-.intro__media.is-zoomed img { transform: translateX(-50%) scale(1.1); }
+.intro__media:hover img { transform: translateX(-50%) scale(1.1); }
 
 .intro__content {
   width: 698px;
@@ -528,10 +528,10 @@ main {
 
 /* ===== photo hover zoom (frame stays fixed, image scales inside it) ===== */
 
-.cph.is-zoomed img,
-.rph.is-zoomed img,
-.shot.is-zoomed img,
-.team__photo.is-zoomed img,
-.site-footer__media.is-zoomed img {
+.cph:hover img,
+.rph:hover img,
+.shot:hover img,
+.team__photo:hover img,
+.site-footer__media:hover img {
   transform: scale(1.1);
 }
