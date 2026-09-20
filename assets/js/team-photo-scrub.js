@@ -28,9 +28,11 @@
 
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
         const pair = pairs.find((p) => p.el === entry.target);
         if (!pair) return;
-        pair.photo.classList.toggle('is-swapped', entry.isIntersecting);
+        pair.photo.classList.add('is-swapped');
+        observer.unobserve(entry.target);
       });
     }, {
       threshold: 0.2,

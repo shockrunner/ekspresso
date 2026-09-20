@@ -29,7 +29,9 @@
 
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
-        entry.target.classList.toggle('is-revealed', entry.isIntersecting);
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('is-revealed');
+        observer.unobserve(entry.target);
       });
     }, {
       threshold: 0.2,

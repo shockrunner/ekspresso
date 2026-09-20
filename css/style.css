@@ -467,8 +467,7 @@ main {
   width: 816px;
   flex-shrink: 0;
   position: sticky;
-  top: 50%;
-  transform: translateY(-50%);
+  top: 96px;
   align-self: flex-start;
 }
 
