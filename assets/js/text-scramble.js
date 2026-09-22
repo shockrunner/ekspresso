@@ -42,6 +42,13 @@
       if (!originalText.has(n)) originalText.set(n, n.nodeValue);
       return originalText.get(n);
     });
+    nodes.forEach((n, ni) => { n.nodeValue = originals[ni]; });
+
+    const lockTarget = el.classList.contains('btn') ? el.querySelector(':scope > span') : null;
+    if (lockTarget) {
+      lockTarget.style.width = lockTarget.getBoundingClientRect().width + 'px';
+      lockTarget.style.overflow = 'hidden';
+    }
 
     let totalChars = 0;
     originals.forEach((t) => { totalChars += t.length; });
@@ -81,6 +88,10 @@
       } else {
         el._scrambleRAF = null;
         nodes.forEach((n, ni) => { n.nodeValue = originals[ni]; });
+        if (lockTarget) {
+          lockTarget.style.width = '';
+          lockTarget.style.overflow = '';
+        }
       }
     }
 
