@@ -12,20 +12,34 @@
 
   main { gap: 5rem; }
 
-  /* ===== header ===== */
+  /* ===== header (now the first in-flow child of .hero on mobile) ===== */
+
+  .site-header {
+    order: 0;
+    position: relative;
+    z-index: 2;
+    height: auto;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    overflow: visible;
+    pointer-events: auto;
+  }
 
   .logo {
-    left: 0.75rem;
-    top: 0.5rem;
+    position: relative;
+    left: auto;
+    top: auto;
     width: 5.75rem;
     height: 1.75rem;
   }
 
   .site-nav {
-    position: fixed;
-    top: 3.25rem;
-    left: 0.75rem;
-    right: 0.75rem;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
     z-index: 49;
     display: flex;
     flex-direction: column;
@@ -55,9 +69,9 @@
   .site-nav a:first-child { border-top: none; }
 
   .nav-toggle {
-    position: fixed;
-    top: 0.5rem;
-    right: 0.75rem;
+    position: relative;
+    top: auto;
+    right: auto;
     z-index: 50;
     width: 2rem;
     height: 2rem;
@@ -87,10 +101,12 @@
   /* ===== hero ===== */
 
   .hero {
-    padding: 0.5rem 0.75rem 3.875rem;
+    padding: 0.5rem 0.75rem calc(2.5rem + env(safe-area-inset-bottom, 0px));
+    height: 100vh;
+    height: 100dvh;
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
+    justify-content: space-between;
   }
 
   .hero__row {
@@ -102,7 +118,6 @@
     width: 100%;
     align-items: flex-start;
     gap: 1.25rem;
-    margin-top: auto;
   }
   .stats-row {
     flex-direction: column;
@@ -121,7 +136,6 @@
     order: 2;
     width: 100%;
     gap: 1rem;
-    margin-top: 6.5rem;
   }
   .hero__title { font-size: 1.55rem; letter-spacing: -0.0155rem; }
 
