@@ -105,8 +105,10 @@
 
   .hero {
     padding: 12.5rem 0.75rem calc(2rem + env(safe-area-inset-bottom, 0px));
-    height: 100vh;
-    height: 100dvh;
+    min-height: 100vh;
+    min-height: 100dvh;
+    height: auto;
+    overflow: visible;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
