@@ -141,6 +141,8 @@ main {
 .site-nav a:nth-child(2) { left: 62.66%; }
 .site-nav a:nth-child(3) { right: 1.25rem; }
 
+.nav-toggle { display: none; }
+
 /* ===== hero ===== */
 
 .hero {
