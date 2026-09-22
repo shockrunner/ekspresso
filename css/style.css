@@ -27,10 +27,18 @@ html.lenis.lenis-smooth { scroll-behavior: auto !important; }
 html.lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
 html.lenis.lenis-stopped { overflow: hidden; }
 
+/*
+  The whole layout is sized in rem, and the root font-size scales down
+  proportionally with viewport width below the 1920px design frame (down to
+  an 11px floor around ~1320px). Above 1920px it stays pinned at 16px, so
+  the design never grows past its intended pixel-perfect size — only
+  shrinks to fit smaller desktop/laptop screens.
+*/
 html {
   width: 100%;
   background: var(--bg);
   overflow-x: clip;
+  font-size: clamp(11px, calc(100vw * 16 / 1920), 16px);
 }
 
 body {
@@ -51,29 +59,29 @@ a { text-decoration: none; color: inherit; }
 .heading {
   font-family: var(--font-mono);
   font-weight: 700;
-  font-size: 28.8px;
+  font-size: 1.8rem;
   line-height: 1.2;
-  letter-spacing: -0.288px;
+  letter-spacing: -0.018rem;
   margin: 0;
 }
 
-.body-text { margin: 0; font-size: 18px; line-height: 1.4; }
+.body-text { margin: 0; font-size: 1.125rem; line-height: 1.4; }
 
 .btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
-  padding: 16px 20px;
+  gap: 0.5rem;
+  padding: 1rem 1.25rem;
   width: fit-content;
   height: fit-content;
   flex-shrink: 0;
-  font-size: 18px;
+  font-size: 1.125rem;
   font-weight: 500;
   white-space: nowrap;
   cursor: pointer;
 }
-.btn img { width: 24px; height: 24px; }
+.btn img { width: 1.5rem; height: 1.5rem; }
 .btn--light { background: var(--light); color: var(--dark); }
 .btn--light em { color: var(--muted); font-style: normal; }
 .btn--dark { background: var(--dark); color: var(--light); }
@@ -85,7 +93,7 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 240px;
+  gap: 15rem;
   padding-bottom: 0;
 }
 
@@ -108,10 +116,10 @@ main {
 */
 .logo {
   position: fixed;
-  left: 20px;
-  top: 17px;
-  width: 160px;
-  height: 49px;
+  left: 1.25rem;
+  top: 1.0625rem;
+  width: 10rem;
+  height: 3.0625rem;
   z-index: 50;
   mix-blend-mode: difference;
   pointer-events: auto;
@@ -120,9 +128,9 @@ main {
 
 .site-nav a {
   position: fixed;
-  top: 17px;
+  top: 1.0625rem;
   z-index: 50;
-  font-size: 18px;
+  font-size: 1.125rem;
   font-weight: 500;
   color: var(--light);
   mix-blend-mode: difference;
@@ -131,7 +139,7 @@ main {
 }
 .site-nav a:nth-child(1) { left: 31.82%; }
 .site-nav a:nth-child(2) { left: 62.66%; }
-.site-nav a:nth-child(3) { right: 20px; }
+.site-nav a:nth-child(3) { right: 1.25rem; }
 
 /* ===== hero ===== */
 
@@ -139,7 +147,7 @@ main {
   position: relative;
   width: 100%;
   height: 100vh;
-  padding: 30px 20px;
+  padding: 1.875rem 1.25rem;
   overflow: hidden;
 }
 
@@ -164,17 +172,17 @@ main {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  gap: 24px;
-  width: 567px;
+  gap: 1.5rem;
+  width: 35.4375rem;
 }
 
 .hero__title {
   margin: 0;
   font-family: var(--font-mono);
   font-weight: 700;
-  font-size: 32px;
+  font-size: 2rem;
   line-height: 1.2;
-  letter-spacing: -0.32px;
+  letter-spacing: -0.02rem;
   color: var(--light);
   font-style: normal;
 }
@@ -185,8 +193,8 @@ main {
   flex-direction: column;
   justify-content: center;
   align-items: flex-end;
-  gap: 15px;
-  width: 698px;
+  gap: 0.9375rem;
+  width: 43.625rem;
   color: var(--light);
   text-transform: lowercase;
 }
@@ -202,14 +210,14 @@ main {
   margin: 0;
   font-family: var(--font-sans);
   font-weight: 500;
-  font-size: 64px;
+  font-size: 4rem;
   opacity: 0.25;
 }
 .stat__label {
   margin: 0;
   font-family: var(--font-mono);
   font-weight: 700;
-  font-size: 18px;
+  font-size: 1.125rem;
 }
 
 .hero__tagline {
@@ -217,9 +225,9 @@ main {
   width: 100%;
   font-family: var(--font-mono);
   font-weight: 700;
-  font-size: 36.9px;
+  font-size: 2.30625rem;
   line-height: 1.2;
-  letter-spacing: -0.369px;
+  letter-spacing: -0.0230625rem;
   text-transform: none;
 }
 
@@ -227,8 +235,8 @@ main {
 
 .intro {
   display: flex;
-  gap: 130px;
-  width: 1644px;
+  gap: 8.125rem;
+  width: 102.75rem;
 }
 
 .intro__media {
@@ -253,32 +261,32 @@ main {
 .intro__media:hover img { transform: translateX(-50%) scale(1.1); }
 
 .intro__content {
-  width: 698px;
-  height: 884px;
-  padding-top: 112px;
+  width: 43.625rem;
+  height: 55.25rem;
+  padding-top: 7rem;
   display: flex;
   flex-direction: column;
-  gap: 134px;
+  gap: 8.375rem;
 }
 
 .intro__cols {
   display: flex;
   justify-content: space-between;
-  gap: 24px;
-  font-size: 18px;
+  gap: 1.5rem;
+  font-size: 1.125rem;
   line-height: 1.4;
 }
-.intro__cols p:first-child { width: 341px; margin: 0; }
-.intro__cols p:last-child { width: 260px; margin: 0; }
+.intro__cols p:first-child { width: 21.3125rem; margin: 0; }
+.intro__cols p:last-child { width: 16.25rem; margin: 0; }
 .intro__cols b { font-weight: 700; }
 
 .intro__routes {
   display: flex;
   flex-direction: column;
-  gap: 28px;
+  gap: 1.75rem;
   width: 100%;
 }
-.intro__routes > p { margin: 0; font-size: 18px; line-height: 1.4; }
+.intro__routes > p { margin: 0; font-size: 1.125rem; line-height: 1.4; }
 
 .route-tags {
   display: flex;
@@ -289,13 +297,13 @@ main {
 .route-tags span {
   font-family: var(--font-typewriter);
   font-weight: 700;
-  font-size: 19px;
+  font-size: 1.1875rem;
   white-space: nowrap;
 }
 .route-tags i {
-  width: 6px;
-  height: 6px;
-  flex: 0 0 6px;
+  width: 0.375rem;
+  height: 0.375rem;
+  flex: 0 0 0.375rem;
   background: url('../assets/icons/ellipse.svg') center / contain no-repeat;
 }
 
@@ -303,8 +311,8 @@ main {
 
 .collage {
   position: relative;
-  width: 1644px;
-  height: 1031px;
+  width: 102.75rem;
+  height: 64.4375rem;
 }
 
 .collage__text {
@@ -312,27 +320,27 @@ main {
 }
 .collage__text--left {
   inset: 0 53.36% 78.04% 0;
-  padding-top: 38px;
+  padding-top: 2.375rem;
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 1.5rem;
 }
-.collage__text--left .heading { width: 680px; }
+.collage__text--left .heading { width: 42.5rem; }
 .collage__text--right {
   inset: 79.35% 0 0 48.7%;
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 1.5rem;
 }
 .collage__text--right .heading { white-space: nowrap; }
-.collage__text--right .body-text { width: 748px; }
+.collage__text--right .body-text { width: 46.75rem; }
 
 .collage__photos {
   position: absolute;
   top: 0;
   left: -7.18%;
   right: -7.18%;
-  height: 1031px;
+  height: 64.4375rem;
 }
 
 .cph {
@@ -342,19 +350,19 @@ main {
 }
 .cph img { width: 100%; height: 100%; object-fit: cover; transition: transform 200ms ease-in; }
 
-.cph--1 { left: 81.74%; right: 0.02%; top: calc(50% - 353.51px); aspect-ratio: 343/324; }
-.cph--2 { left: 56.58%; right: 18.9%; top: calc(50% - 185.01px); aspect-ratio: 343/324; }
-.cph--3 { left: 25.15%; right: 56.61%; top: calc(50% + 150.49px); aspect-ratio: 343/436; }
-.cph--4 { left: -0.01%; right: 75.49%; top: calc(50% - 17.51px); aspect-ratio: 461/324; }
-.cph--5 { left: 44.03%; right: 44.06%; top: calc(50% - 17.01px); aspect-ratio: 224/325; }
+.cph--1 { left: 81.74%; right: 0.02%; top: calc(50% - 22.094375rem); aspect-ratio: 343/324; }
+.cph--2 { left: 56.58%; right: 18.9%; top: calc(50% - 11.563125rem); aspect-ratio: 343/324; }
+.cph--3 { left: 25.15%; right: 56.61%; top: calc(50% + 9.405625rem); aspect-ratio: 343/436; }
+.cph--4 { left: -0.01%; right: 75.49%; top: calc(50% - 1.094375rem); aspect-ratio: 461/324; }
+.cph--5 { left: 44.03%; right: 44.06%; top: calc(50% - 1.063125rem); aspect-ratio: 224/325; }
 
 /* ===== ritual (4 блок) ===== */
 
 .ritual {
   display: flex;
   align-items: center;
-  gap: 83px;
-  width: 1644px;
+  gap: 5.1875rem;
+  width: 102.75rem;
 }
 
 .ritual__text {
@@ -362,30 +370,30 @@ main {
   min-width: 0;
   display: flex;
   flex-direction: column;
-  gap: 256px;
+  gap: 16rem;
 }
 
-.body-stack { display: flex; flex-direction: column; gap: 37px; }
-.body-stack p { margin: 0; font-size: 18px; line-height: 1.4; }
+.body-stack { display: flex; flex-direction: column; gap: 2.3125rem; }
+.body-stack p { margin: 0; font-size: 1.125rem; line-height: 1.4; }
 
 .ritual__photos {
   position: relative;
-  width: 1052px;
-  height: 772px;
+  width: 65.75rem;
+  height: 48.25rem;
 }
 .rph { position: absolute; overflow: hidden; transform: translateY(-50%); }
 .rph img { width: 100%; height: 100%; object-fit: cover; transition: transform 200ms ease-in; }
 .rph--1 { left: 0; right: 44.96%; top: 50%; aspect-ratio: 579/772; }
-.rph--2 { left: 56.18%; right: 0; top: calc(50% - 56px); aspect-ratio: 461/660; }
+.rph--2 { left: 56.18%; right: 0; top: calc(50% - 3.5rem); aspect-ratio: 461/660; }
 .rph--2 img { object-position: bottom; }
 
 /* ===== random shots (5 блок) ===== */
 
 .random-shots {
-  width: 1644px;
+  width: 102.75rem;
   display: flex;
   flex-direction: column;
-  gap: 40px;
+  gap: 2.5rem;
 }
 
 .shots-strip {
@@ -412,32 +420,32 @@ main {
   to { transform: translateX(-50%); }
 }
 
-.shot { overflow: hidden; flex-shrink: 0; margin-right: 130px; }
+.shot { overflow: hidden; flex-shrink: 0; margin-right: 8.125rem; }
 .shot img { width: 100%; height: 100%; object-fit: cover; transition: transform 200ms ease-in; }
-.shot--sm { width: 225px; height: 213px; }
-.shot--md { width: 343px; height: 436px; }
-.shot--lg { width: 579px; height: 660px; }
+.shot--sm { width: 14.0625rem; height: 13.3125rem; }
+.shot--md { width: 21.4375rem; height: 27.25rem; }
+.shot--lg { width: 36.1875rem; height: 41.25rem; }
 
 .shots-caption {
   display: flex;
   justify-content: space-between;
-  width: 1256px;
+  width: 78.5rem;
 }
-.shots-caption p { margin: 0; font-size: 18px; line-height: 1.4; }
-.shots-caption p:first-child { width: 461px; }
-.shots-caption p:last-child { width: 428px; }
+.shots-caption p { margin: 0; font-size: 1.125rem; line-height: 1.4; }
+.shots-caption p:first-child { width: 28.8125rem; }
+.shots-caption p:last-child { width: 26.75rem; }
 
 /* ===== team (пацаны) ===== */
 
 .team {
-  width: 1644px;
+  width: 102.75rem;
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
 }
 
 .team__text-col {
-  width: 698px;
+  width: 43.625rem;
   display: grid;
 }
 
@@ -445,33 +453,33 @@ main {
   grid-area: 1 / 1;
   display: flex;
   flex-direction: column;
-  gap: 80px;
+  gap: 5rem;
 }
 .team__text-triggers .team__member {
   width: 100%;
-  height: 884px;
+  height: 55.25rem;
 }
 
 .team__text-sticky {
   grid-area: 1 / 1;
   position: sticky;
-  top: 56px;
+  top: 3.5rem;
   align-self: start;
 }
 
 .team__text-stack {
   position: relative;
-  width: 698px;
-  height: 884px;
+  width: 43.625rem;
+  height: 55.25rem;
 }
 
 .team__member-text {
   position: absolute;
   inset: 0;
-  padding: 112px 0;
+  padding: 7rem 0;
   display: flex;
   flex-direction: column;
-  gap: 436px;
+  gap: 27.25rem;
   pointer-events: none;
 }
 .team__member-text.is-current { pointer-events: auto; }
@@ -487,29 +495,29 @@ main {
 .team__quote-block {
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 1.5rem;
 }
 
 .team__author {
   margin: 0;
-  font-size: 18px;
+  font-size: 1.125rem;
   line-height: 1.4;
 }
 
-.team__member-text .body-text { max-width: 580px; }
+.team__member-text .body-text { max-width: 36.25rem; }
 
 .team__photo-col {
-  width: 816px;
+  width: 51rem;
   flex-shrink: 0;
   position: sticky;
-  top: 56px;
+  top: 3.5rem;
   align-self: flex-start;
 }
 
 .team__photo-stack {
   position: relative;
-  width: 816px;
-  height: 884px;
+  width: 51rem;
+  height: 55.25rem;
 }
 
 .team__photo {
@@ -531,9 +539,9 @@ main {
 
 .site-footer {
   width: 100%;
-  height: 1080px;
+  height: 67.5rem;
   display: flex;
-  gap: 83px;
+  gap: 5.1875rem;
   overflow: hidden;
 }
 
@@ -547,9 +555,9 @@ main {
 .site-footer__media video { width: 100%; height: 100%; object-fit: cover; transition: transform 200ms ease-in; }
 
 .site-footer__content {
-  width: 697px;
-  height: 1080px;
-  padding: 273px 20px 55px 0;
+  width: 43.5625rem;
+  height: 67.5rem;
+  padding: 17.0625rem 1.25rem 3.4375rem 0;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -558,22 +566,22 @@ main {
 .footer-blocks {
   display: flex;
   flex-direction: column;
-  gap: 120px;
+  gap: 7.5rem;
 }
 
 .footer-block {
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 1.5rem;
 }
 
 .footer-heading {
   margin: 0;
   font-family: var(--font-mono);
   font-weight: 700;
-  font-size: 27px;
+  font-size: 1.6875rem;
   line-height: 1.2;
-  letter-spacing: -0.27px;
+  letter-spacing: -0.016875rem;
 }
 
 .footer-bottom {
@@ -582,8 +590,8 @@ main {
   width: 100%;
   font-family: var(--font-mono);
   font-weight: 700;
-  font-size: 16px;
-  letter-spacing: -0.16px;
+  font-size: 1rem;
+  letter-spacing: -0.01rem;
 }
 .footer-dev { margin: 0; text-decoration: underline; }
 .footer-bottom p { margin: 0; }
