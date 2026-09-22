@@ -101,7 +101,7 @@
   /* ===== hero ===== */
 
   .hero {
-    padding: 0.5rem 0.75rem calc(2.5rem + env(safe-area-inset-bottom, 0px));
+    padding: 0.5rem 0.75rem calc(2rem + env(safe-area-inset-bottom, 0px));
     height: 100vh;
     height: 100dvh;
     display: flex;
@@ -128,8 +128,8 @@
   .stat__label { font-size: 0.875rem; }
   .hero__tagline {
     text-align: right;
-    font-size: 1.55rem;
-    letter-spacing: -0.0155rem;
+    font-size: 1.48rem;
+    letter-spacing: -0.0148rem;
   }
 
   .hero__action {
@@ -137,7 +137,8 @@
     width: 100%;
     gap: 1rem;
   }
-  .hero__title { font-size: 1.55rem; letter-spacing: -0.0155rem; }
+  .hero__title { font-size: 1.48rem; letter-spacing: -0.0148rem; }
+  .hero__action .btn { gap: 0.5rem; }
 
   .btn {
     padding: 0.875rem 1rem;
