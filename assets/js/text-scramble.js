@@ -1,10 +1,25 @@
 (function () {
-  const CHARS = '!<>-_\\/[]{}—=+*^?#АБВГДЕЖЗИЙКЛМНОПРСТУФХЦЧШЩЭЮЯABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+  const LOWER_CYRILLIC = 'абвгдежзийклмнопрстуфхцчшщъыьэюяё';
+  const UPPER_CYRILLIC = 'АБВГДЕЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯЁ';
+  const LOWER_LATIN = 'abcdefghijklmnopqrstuvwxyz';
+  const UPPER_LATIN = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+  const DIGITS = '0123456789';
   const DURATION = 400;
   const originalText = new WeakMap();
 
-  function randomChar() {
-    return CHARS[(Math.random() * CHARS.length) | 0];
+  function pick(pool) {
+    return pool[(Math.random() * pool.length) | 0];
+  }
+
+  function randomCharLike(ch) {
+    if (ch >= 'а' && ch <= 'я') return pick(LOWER_CYRILLIC);
+    if (ch === 'ё') return pick(LOWER_CYRILLIC);
+    if (ch >= 'А' && ch <= 'Я') return pick(UPPER_CYRILLIC);
+    if (ch === 'Ё') return pick(UPPER_CYRILLIC);
+    if (ch >= 'a' && ch <= 'z') return pick(LOWER_LATIN);
+    if (ch >= 'A' && ch <= 'Z') return pick(UPPER_LATIN);
+    if (ch >= '0' && ch <= '9') return pick(DIGITS);
+    return ch;
   }
 
   function collectTextNodes(root) {
@@ -39,7 +54,7 @@
         const scrambleable = /[a-zA-Zа-яА-ЯёЁ0-9]/.test(ch);
         const start = (idx / totalChars) * DURATION * 0.5;
         const end = start + DURATION * 0.3 + Math.random() * DURATION * 0.3;
-        entries.push({ ni, i, scrambleable, start, end });
+        entries.push({ ni, i, ch, scrambleable, start, end });
         idx++;
       }
     });
@@ -56,7 +71,7 @@
           buffers[e.ni][e.i] = originals[e.ni][e.i];
           doneCount++;
         } else {
-          buffers[e.ni][e.i] = randomChar();
+          buffers[e.ni][e.i] = randomCharLike(e.ch);
         }
       });
       nodes.forEach((n, ni) => { n.nodeValue = buffers[ni].join(''); });
