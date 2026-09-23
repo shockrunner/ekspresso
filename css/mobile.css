@@ -14,26 +14,27 @@
 
   /* ===== header (fixed to the top of the viewport, 8px offset) ===== */
 
+  /*
+    Each header element gets its own independent position:fixed (not a
+    fixed+z-indexed wrapper) on purpose: a positioned, z-indexed parent
+    establishes its own stacking context, which isolates mix-blend-mode
+    on its children so they only blend against each other instead of
+    the hero video behind them. Same pitfall as the desktop .logo rule
+    above.
+  */
   .site-header {
     order: 0;
-    position: fixed;
-    top: 0.5rem;
-    left: 0.75rem;
-    right: 0.75rem;
-    z-index: 50;
+    position: static;
     height: auto;
     width: auto;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
     overflow: visible;
     pointer-events: none;
   }
 
   .logo {
-    position: relative;
-    left: auto;
-    top: auto;
+    position: fixed;
+    left: 0.75rem;
+    top: 0.5rem;
     width: 5.75rem;
     height: 1.75rem;
     pointer-events: auto;
@@ -73,9 +74,9 @@
   }
 
   .nav-toggle {
-    position: relative;
-    top: auto;
-    right: auto;
+    position: fixed;
+    top: 0.5rem;
+    right: 0.75rem;
     z-index: 50;
     width: 2rem;
     height: 2rem;
