@@ -87,15 +87,6 @@ a { text-decoration: none; color: inherit; }
 .btn--dark { background: var(--dark); color: var(--light); }
 .btn--dark em { color: var(--muted); font-style: normal; }
 
-/*
-  The hero button sits directly on top of a looping video whose
-  brightness varies a lot (sky, snow, bright grass). The light button
-  fill can blend almost completely into a bright frame and effectively
-  disappear, so it always gets a soft shadow for separation regardless
-  of what the video is showing underneath.
-*/
-.hero .btn { box-shadow: 0 0.25rem 1.25rem rgba(0, 0, 0, 0.35); }
-
 /* ===== layout shell ===== */
 
 main {
