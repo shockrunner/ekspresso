@@ -287,8 +287,9 @@ main {
   font-size: 1.125rem;
   line-height: 1.4;
 }
-.intro__cols p:first-child { width: 21.3125rem; margin: 0; }
-.intro__cols p:last-child { width: 16.25rem; margin: 0; }
+.intro__cols p:nth-child(1) { width: 21.3125rem; margin: 0; }
+.intro__cols p:nth-child(2) { width: 16.25rem; margin: 0; }
+.intro__cols-mobile { display: none; }
 .intro__cols b { font-weight: inherit; }
 
 .intro__routes {
