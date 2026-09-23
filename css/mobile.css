@@ -121,6 +121,8 @@
 
   .hero__stats {
     order: 1;
+    position: relative;
+    z-index: 1;
     width: 100%;
     align-items: flex-start;
     gap: 1.25rem;
@@ -140,6 +142,8 @@
 
   .hero__action {
     order: 2;
+    position: relative;
+    z-index: 1;
     width: 100%;
     gap: 1rem;
   }
