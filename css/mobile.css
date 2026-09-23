@@ -25,6 +25,27 @@
   .hero__tagline,
   .team__author { width: 100%; max-width: 100%; }
 
+  /*
+    Every multi-line heading/paragraph outside the hero is hard-broken
+    into several .line-mask spans at desktop's much wider column width
+    (e.g. "...сформировалась" / "в 2018 году." as two separate lines).
+    At mobile width those breaks land in the wrong place: a line ends
+    early with room to spare, and the wrap looks broken. Switching
+    .line-mask to inline-block lets consecutive chunks flow onto the
+    same line when they fit (the whitespace already in the HTML source
+    between adjacent spans renders as the word-space), while each
+    chunk still masks/slides independently for the reveal animation.
+    The hero already reads correctly as-is, so it is excluded.
+  */
+  [data-reveal-lines] .line-mask {
+    display: inline-block;
+    vertical-align: top;
+  }
+  .hero [data-reveal-lines] .line-mask {
+    display: block;
+    vertical-align: initial;
+  }
+
   /* ===== header (fixed to the top of the viewport, 8px offset) ===== */
 
   /*
@@ -225,6 +246,7 @@
   }
   .collage__text--left { gap: 1rem; }
   .collage__text--left .heading { width: 100%; font-size: 1.48rem; }
+  .collage__text--left .body-text { font-size: 0.875rem; }
 
   .collage__photos {
     position: static;

@@ -2,6 +2,30 @@
   const groups = document.querySelectorAll('[data-reveal-lines]');
   if (!groups.length) return;
 
+  // Headings/paragraphs outside the hero are hand-broken into several
+  // .line-mask chunks at desktop's much wider column width. At mobile
+  // widths those fixed break points are wrong (a word that could still
+  // fit on a line gets pushed down because it belongs to the next
+  // hard-coded chunk instead of reflowing naturally). Below 768px,
+  // collapse each multi-chunk group into a single chunk so the browser
+  // wraps the whole thing exactly like a normal paragraph, matching the
+  // Figma mobile frame's natural text wrap. The hero already reads
+  // correctly as multiple deliberate chunks, so it is left alone.
+  if (window.matchMedia('(max-width: 767px)').matches) {
+    groups.forEach((group) => {
+      if (group.closest('.hero')) return;
+      const masks = group.querySelectorAll(':scope > .line-mask');
+      if (masks.length <= 1) return;
+      const html = [...masks]
+        .map((mask) => {
+          const line = mask.querySelector('.line');
+          return line ? line.innerHTML : '';
+        })
+        .join(' ');
+      group.innerHTML = '<span class="line-mask"><span class="line">' + html + '</span></span>';
+    });
+  }
+
   groups.forEach((group) => {
     const lines = group.querySelectorAll('.line');
     lines.forEach((line, i) => {
