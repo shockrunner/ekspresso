@@ -12,6 +12,19 @@
 
   main { gap: 5rem; }
 
+  /*
+    Belt-and-suspenders: every heading/body paragraph should fill its
+    container's width (Figma's "Fill" sizing) rather than relying on
+    inherited flex-stretch defaults, so none of them can ever wrap
+    short or clip regardless of what a parent's align-items is doing.
+  */
+  .heading,
+  .body-text,
+  .footer-heading,
+  .hero__title,
+  .hero__tagline,
+  .team__author { width: 100%; max-width: 100%; }
+
   /* ===== header (fixed to the top of the viewport, 8px offset) ===== */
 
   /*
