@@ -105,7 +105,7 @@
   /* ===== hero ===== */
 
   .hero {
-    padding: 12.5rem 0.75rem calc(2rem + env(safe-area-inset-bottom, 0px));
+    padding: 2rem 0.75rem calc(2rem + env(safe-area-inset-bottom, 0px));
     min-height: 100vh;
     min-height: 100dvh;
     height: auto;
