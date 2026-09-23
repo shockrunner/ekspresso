@@ -1,6 +1,5 @@
 (function () {
   const groups = document.querySelectorAll('[data-reveal-lines]');
-  if (!groups.length) return;
 
   // Headings/paragraphs outside the hero are hand-broken into several
   // .line-mask chunks at desktop's much wider column width. At mobile
@@ -11,8 +10,14 @@
   // wraps the whole thing exactly like a normal paragraph, matching the
   // Figma mobile frame's natural text wrap. The hero already reads
   // correctly as multiple deliberate chunks, so it is left alone.
+  // Team member quotes/body-text use their own reveal mechanism (class
+  // toggling in team-photo-scrub.js, no data-reveal-lines attribute),
+  // so they are included here explicitly as well.
   if (window.matchMedia('(max-width: 767px)').matches) {
-    groups.forEach((group) => {
+    const mergeGroups = document.querySelectorAll(
+      '[data-reveal-lines], .team__member-text .heading, .team__member-text .body-text'
+    );
+    mergeGroups.forEach((group) => {
       if (group.closest('.hero')) return;
       const masks = group.querySelectorAll(':scope > .line-mask');
       if (masks.length <= 1) return;
@@ -25,6 +30,8 @@
       group.innerHTML = '<span class="line-mask"><span class="line">' + html + '</span></span>';
     });
   }
+
+  if (!groups.length) return;
 
   groups.forEach((group) => {
     const lines = group.querySelectorAll('.line');
