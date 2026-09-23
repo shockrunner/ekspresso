@@ -289,7 +289,7 @@ main {
 }
 .intro__cols p:first-child { width: 21.3125rem; margin: 0; }
 .intro__cols p:last-child { width: 16.25rem; margin: 0; }
-.intro__cols b { font-weight: 700; }
+.intro__cols b { font-weight: inherit; }
 
 .intro__routes {
   display: flex;
