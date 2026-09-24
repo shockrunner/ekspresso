@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&family=Cousine:ital,wght@0,400;0,700;1,400;1,700&family=Inter+Tight:ital,wght@0,500;0,600;0,700;1,500&display=swap" rel="stylesheet">
 <link rel="preload" as="image" href="assets/img/loop-poster.webp" media="(min-width: 768px)" fetchpriority="high">
-<link rel="preload" as="image" href="assets/img/loop-poster-mobile.webp" media="(max-width: 767px)" fetchpriority="high">
+<link rel="preload" as="image" href="assets/img/loop-poster-mobile.webp?v=2" media="(max-width: 767px)" fetchpriority="high">
 <link rel="stylesheet" href="css/style.css?v=16">
 <link rel="stylesheet" href="css/mobile.css?v=19">
 </head>
@@ -19,11 +19,11 @@
   <section class="hero" id="top">
     <video class="hero__bg" autoplay muted loop playsinline preload="auto">
       <source src="assets/video/loop.mp4?v=2" type="video/mp4" media="(min-width: 768px)">
-      <source src="assets/video/loop-mobile.mp4?v=1" type="video/mp4" media="(max-width: 767px)">
+      <source src="assets/video/loop-mobile.mp4?v=2" type="video/mp4" media="(max-width: 767px)">
     </video>
     <script>
       document.currentScript.previousElementSibling.poster = matchMedia('(max-width: 767px)').matches
-        ? 'assets/img/loop-poster-mobile.webp'
+        ? 'assets/img/loop-poster-mobile.webp?v=2'
         : 'assets/img/loop-poster.webp';
     </script>
     <header class="site-header">
@@ -255,7 +255,7 @@
 
   <section class="site-footer">
     <div class="site-footer__media">
-      <video data-lazy-src="assets/video/loop.mp4?v=2" data-lazy-src-mobile="assets/video/loop-mobile.mp4?v=1" data-poster="assets/img/loop-poster.webp" data-poster-mobile="assets/img/loop-poster-mobile.webp" muted loop playsinline preload="none"></video>
+      <video data-lazy-src="assets/video/loop.mp4?v=2" data-lazy-src-mobile="assets/video/loop-mobile.mp4?v=2" data-poster="assets/img/loop-poster.webp" data-poster-mobile="assets/img/loop-poster-mobile.webp?v=2" muted loop playsinline preload="none"></video>
     </div>
     <div class="site-footer__content">
       <div class="footer-blocks">
