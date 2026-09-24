@@ -1,4 +1,17 @@
 (function () {
+  // On mobile the team block is a plain stacked list (team-photo-scrub.js
+  // is off there), so its quotes, authors and body texts become ordinary
+  // scroll-revealed groups like every other text on the page. The static
+  // is-revealed/is-current on the first member is desktop-only state.
+  if (window.matchMedia('(max-width: 767px)').matches) {
+    document.querySelectorAll('.team__member-text').forEach((t) => {
+      t.classList.remove('is-revealed', 'is-current');
+    });
+    document
+      .querySelectorAll('.team__member-text .heading, .team__member-text .team__author, .team__member-text .body-text')
+      .forEach((el) => el.setAttribute('data-reveal-lines', ''));
+  }
+
   const groups = document.querySelectorAll('[data-reveal-lines]');
 
   // Headings/paragraphs outside the hero are hand-broken into several

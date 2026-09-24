@@ -366,30 +366,30 @@
     width: 100%;
     height: auto;
   }
-  .team__member-text .line { transform: none !important; }
-  .team__quote-block { gap: 0.5rem; width: 100%; }
+  .team__quote-block { gap: 0.25rem; width: 100%; }
   .team__member-text .heading { font-size: 1.48rem; }
   .team__author { font-size: 0.875rem; }
   .team__member-text .body-text { font-size: 0.875rem; max-width: none; }
 
   .team__photo { aspect-ratio: 351 / 426; }
 
-  .team__member-text > .team__quote-block,
-  .team__photo { margin-bottom: 1rem; }
-  .team__member-text > .body-text { margin-bottom: 2rem; }
+  /* Per member (Figma): photo, 16px, quote + author (4px apart), 16px, body text; 48px between members. */
+  .team__photo,
+  .team__member-text > .team__quote-block { margin-bottom: 1rem; }
+  .team__member-text > .body-text { margin-bottom: 3rem; }
   .team__member-text[data-team-index="3"] > .body-text { margin-bottom: 0; }
 
-  .team__member-text[data-team-index="0"] > .team__quote-block { order: 1; }
-  .team__photo[data-team-index="0"] { order: 2; }
+  .team__photo[data-team-index="0"] { order: 1; }
+  .team__member-text[data-team-index="0"] > .team__quote-block { order: 2; }
   .team__member-text[data-team-index="0"] > .body-text { order: 3; }
-  .team__member-text[data-team-index="1"] > .team__quote-block { order: 4; }
-  .team__photo[data-team-index="1"] { order: 5; }
+  .team__photo[data-team-index="1"] { order: 4; }
+  .team__member-text[data-team-index="1"] > .team__quote-block { order: 5; }
   .team__member-text[data-team-index="1"] > .body-text { order: 6; }
-  .team__member-text[data-team-index="2"] > .team__quote-block { order: 7; }
-  .team__photo[data-team-index="2"] { order: 8; }
+  .team__photo[data-team-index="2"] { order: 7; }
+  .team__member-text[data-team-index="2"] > .team__quote-block { order: 8; }
   .team__member-text[data-team-index="2"] > .body-text { order: 9; }
-  .team__member-text[data-team-index="3"] > .team__quote-block { order: 10; }
-  .team__photo[data-team-index="3"] { order: 11; }
+  .team__photo[data-team-index="3"] { order: 10; }
+  .team__member-text[data-team-index="3"] > .team__quote-block { order: 11; }
   .team__member-text[data-team-index="3"] > .body-text { order: 12; }
 
   /* ===== footer ===== */
