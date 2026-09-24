@@ -26,6 +26,8 @@ html.lenis, html.lenis body { height: auto; }
 html.lenis.lenis-smooth { scroll-behavior: auto !important; }
 html.lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
 html.lenis.lenis-stopped { overflow: hidden; }
+html.menu-open,
+html.menu-open body { overflow: hidden; overscroll-behavior: none; }
 
 /*
   The whole layout is sized in rem, and the root font-size scales down
