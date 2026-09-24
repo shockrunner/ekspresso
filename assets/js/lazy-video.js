@@ -2,8 +2,17 @@
   const videos = document.querySelectorAll('video[data-lazy-src]');
   if (!videos.length) return;
 
+  const isMobile = window.matchMedia('(max-width: 767px)').matches;
+  const pick = (video, name) =>
+    (isMobile && video.getAttribute(name + '-mobile')) || video.getAttribute(name);
+
+  videos.forEach((video) => {
+    const poster = pick(video, 'data-poster');
+    if (poster) video.poster = poster;
+  });
+
   function start(video) {
-    video.src = video.getAttribute('data-lazy-src');
+    video.src = pick(video, 'data-lazy-src');
     video.removeAttribute('data-lazy-src');
     const p = video.play();
     if (p && typeof p.catch === 'function') p.catch(() => {});
