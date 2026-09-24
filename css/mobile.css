@@ -139,16 +139,17 @@
   /* ===== hero ===== */
 
   /*
-    The hero is sized to the *large* viewport (100lvh: the full screen
-    with the browser toolbars retracted), so the video runs all the way
-    to the bottom edge of the phone, underneath Safari's translucent
-    bottom bar. The extra bottom padding of (100lvh - 100dvh) equals
-    whatever the toolbars currently cover, which keeps the button inside
-    the actually-visible area instead of hidden under the bar.
+    Sized to the large viewport (100lvh: full screen with browser bars
+    retracted) so the video reaches the physical edges of the phone.
+    Only static viewport units are used: lvh and svh never change while
+    Safari's bar expands/collapses (dvh does, which made the content
+    slide up and down). (100lvh - 100svh) is the full height of the
+    expanded browser bars, so the button always clears them, and the
+    layout stays put when they collapse.
   */
   .hero {
-    padding: 2rem 0.75rem calc(2rem + env(safe-area-inset-bottom, 0px));
-    padding-bottom: calc(2rem + (100lvh - 100dvh) + env(safe-area-inset-bottom, 0px));
+    padding: calc(2rem + env(safe-area-inset-top, 0px)) 0.75rem calc(2rem + env(safe-area-inset-bottom, 0px));
+    padding-bottom: calc(2rem + (100lvh - 100svh) + env(safe-area-inset-bottom, 0px));
     min-height: 100vh;
     min-height: 100lvh;
     height: auto;
