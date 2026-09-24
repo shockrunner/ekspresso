@@ -67,8 +67,8 @@
 
   .logo {
     position: fixed;
-    left: 0.75rem;
-    top: 0.5rem;
+    left: calc(0.75rem + env(safe-area-inset-left, 0px));
+    top: calc(0.5rem + env(safe-area-inset-top, 0px));
     width: 5.75rem;
     height: 1.75rem;
     pointer-events: auto;
@@ -109,8 +109,8 @@
 
   .nav-toggle {
     position: fixed;
-    top: 0.5rem;
-    right: 0.75rem;
+    top: calc(0.5rem + env(safe-area-inset-top, 0px));
+    right: calc(0.75rem + env(safe-area-inset-right, 0px));
     z-index: 50;
     width: 2rem;
     height: 2rem;
@@ -138,10 +138,19 @@
 
   /* ===== hero ===== */
 
+  /*
+    The hero is sized to the *large* viewport (100lvh: the full screen
+    with the browser toolbars retracted), so the video runs all the way
+    to the bottom edge of the phone, underneath Safari's translucent
+    bottom bar. The extra bottom padding of (100lvh - 100dvh) equals
+    whatever the toolbars currently cover, which keeps the button inside
+    the actually-visible area instead of hidden under the bar.
+  */
   .hero {
     padding: 2rem 0.75rem calc(2rem + env(safe-area-inset-bottom, 0px));
+    padding-bottom: calc(2rem + (100lvh - 100dvh) + env(safe-area-inset-bottom, 0px));
     min-height: 100vh;
-    min-height: 100dvh;
+    min-height: 100lvh;
     height: auto;
     overflow: visible;
     display: flex;
