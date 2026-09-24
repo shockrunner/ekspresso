@@ -79,5 +79,20 @@
   window.addEventListener('resize', recalc);
   window.addEventListener('load', recalc);
 
+  // Native lazy-loading never fires for shots parked off to the side of the
+  // strip, so load the whole strip once it gets close vertically instead.
+  const stripImages = track.querySelectorAll('img[loading="lazy"]');
+  const loadStrip = () => stripImages.forEach((img) => { img.loading = 'eager'; });
+  if (typeof IntersectionObserver === 'undefined') {
+    loadStrip();
+  } else {
+    const io = new IntersectionObserver((entries) => {
+      if (!entries.some((e) => e.isIntersecting)) return;
+      io.disconnect();
+      loadStrip();
+    }, { rootMargin: '1200px 0px' });
+    io.observe(strip);
+  }
+
   requestAnimationFrame(frame);
 })();

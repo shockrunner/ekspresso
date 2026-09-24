@@ -7,6 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&family=Cousine:ital,wght@0,400;0,700;1,400;1,700&family=Inter+Tight:ital,wght@0,500;0,600;0,700;1,500&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="assets/img/loop-poster.webp" fetchpriority="high">
 <link rel="stylesheet" href="css/style.css?v=16">
 <link rel="stylesheet" href="css/mobile.css?v=17">
 </head>
@@ -15,7 +16,7 @@
 <main>
 
   <section class="hero" id="top">
-    <video class="hero__bg" src="assets/video/loop.mp4" autoplay muted loop playsinline></video>
+    <video class="hero__bg" src="assets/video/loop.mp4?v=2" poster="assets/img/loop-poster.webp" autoplay muted loop playsinline preload="auto"></video>
     <header class="site-header">
       <a href="#top" class="logo"><img src="assets/icons/logo.svg" alt="Эkspresso"></a>
       <button class="nav-toggle" type="button" aria-label="Меню" aria-expanded="false" aria-controls="site-nav">
@@ -60,7 +61,7 @@
 
   <section class="intro" id="about">
     <div class="intro__media">
-      <img src="assets/img/hero.webp" alt="Команда велосипедистов на маршруте">
+      <img loading="lazy" decoding="async" src="assets/img/hero.webp?v=2" alt="Команда велосипедистов на маршруте">
     </div>
     <div class="intro__content">
       <p class="heading" data-reveal-lines>
@@ -112,14 +113,14 @@
       </p>
     </div>
     <div class="collage__photos">
-      <div class="cph cph--1"><img src="assets/img/photo-284.webp" alt=""></div>
+      <div class="cph cph--1"><img loading="lazy" decoding="async" src="assets/img/photo-284.webp" alt=""></div>
       <div class="collage__photos-col">
-        <div class="cph cph--3"><img src="assets/img/photo-mayak.webp" alt="Маяк"></div>
-        <div class="cph cph--4"><img src="assets/img/photo-392.webp" alt=""></div>
+        <div class="cph cph--3"><img loading="lazy" decoding="async" src="assets/img/photo-mayak.webp" alt="Маяк"></div>
+        <div class="cph cph--4"><img loading="lazy" decoding="async" src="assets/img/photo-392.webp" alt=""></div>
       </div>
       <div class="collage__photos-col">
-        <div class="cph cph--2"><img src="assets/img/photo-2162.webp" alt=""></div>
-        <div class="cph cph--5"><img src="assets/img/photo-9799.webp" alt=""></div>
+        <div class="cph cph--2"><img loading="lazy" decoding="async" src="assets/img/photo-2162.webp" alt=""></div>
+        <div class="cph cph--5"><img loading="lazy" decoding="async" src="assets/img/photo-9799.webp" alt=""></div>
       </div>
     </div>
   </section>
@@ -133,8 +134,8 @@
       </div>
     </div>
     <div class="ritual__photos">
-      <div class="rph rph--1"><img src="assets/img/photo-tshirt.webp" alt=""></div>
-      <div class="rph rph--2"><img src="assets/img/photo-1162.webp" alt=""></div>
+      <div class="rph rph--1"><img loading="lazy" decoding="async" src="assets/img/photo-tshirt.webp" alt=""></div>
+      <div class="rph rph--2"><img loading="lazy" decoding="async" src="assets/img/photo-1162.webp" alt=""></div>
     </div>
   </section>
 
@@ -145,24 +146,24 @@
     </p>
     <div class="shots-strip">
       <div class="shots-track">
-        <div class="shot shot--sm"><img src="assets/img/photo-r1.webp" alt=""></div>
-        <div class="shot shot--md"><img src="assets/img/photo-7310.webp" alt=""></div>
-        <div class="shot shot--lg"><img src="assets/img/photo-473.webp" alt=""></div>
-        <div class="shot shot--sm"><img src="assets/img/photo-2.webp" alt=""></div>
-        <div class="shot shot--md"><img src="assets/img/photo-322.webp" alt=""></div>
-        <div class="shot shot--lg"><img src="assets/img/photo-7.webp" alt=""></div>
-        <div class="shot shot--sm"><img src="assets/img/photo-145.webp" alt=""></div>
-        <div class="shot shot--md"><img src="assets/img/photo-225.webp" alt=""></div>
-        <div class="shot shot--lg"><img src="assets/img/photo-21.webp" alt=""></div>
-        <div class="shot shot--sm" aria-hidden="true"><img src="assets/img/photo-r1.webp" alt=""></div>
-        <div class="shot shot--md" aria-hidden="true"><img src="assets/img/photo-7310.webp" alt=""></div>
-        <div class="shot shot--lg" aria-hidden="true"><img src="assets/img/photo-473.webp" alt=""></div>
-        <div class="shot shot--sm" aria-hidden="true"><img src="assets/img/photo-2.webp" alt=""></div>
-        <div class="shot shot--md" aria-hidden="true"><img src="assets/img/photo-322.webp" alt=""></div>
-        <div class="shot shot--lg" aria-hidden="true"><img src="assets/img/photo-7.webp" alt=""></div>
-        <div class="shot shot--sm" aria-hidden="true"><img src="assets/img/photo-145.webp" alt=""></div>
-        <div class="shot shot--md" aria-hidden="true"><img src="assets/img/photo-225.webp" alt=""></div>
-        <div class="shot shot--lg" aria-hidden="true"><img src="assets/img/photo-21.webp" alt=""></div>
+        <div class="shot shot--sm"><img loading="lazy" decoding="async" src="assets/img/photo-r1.webp" alt=""></div>
+        <div class="shot shot--md"><img loading="lazy" decoding="async" src="assets/img/photo-7310.webp" alt=""></div>
+        <div class="shot shot--lg"><img loading="lazy" decoding="async" src="assets/img/photo-473.webp?v=2" alt=""></div>
+        <div class="shot shot--sm"><img loading="lazy" decoding="async" src="assets/img/photo-2.webp" alt=""></div>
+        <div class="shot shot--md"><img loading="lazy" decoding="async" src="assets/img/photo-322.webp" alt=""></div>
+        <div class="shot shot--lg"><img loading="lazy" decoding="async" src="assets/img/photo-7.webp?v=2" alt=""></div>
+        <div class="shot shot--sm"><img loading="lazy" decoding="async" src="assets/img/photo-145.webp" alt=""></div>
+        <div class="shot shot--md"><img loading="lazy" decoding="async" src="assets/img/photo-225.webp" alt=""></div>
+        <div class="shot shot--lg"><img loading="lazy" decoding="async" src="assets/img/photo-21.webp?v=2" alt=""></div>
+        <div class="shot shot--sm" aria-hidden="true"><img loading="lazy" decoding="async" src="assets/img/photo-r1.webp" alt=""></div>
+        <div class="shot shot--md" aria-hidden="true"><img loading="lazy" decoding="async" src="assets/img/photo-7310.webp" alt=""></div>
+        <div class="shot shot--lg" aria-hidden="true"><img loading="lazy" decoding="async" src="assets/img/photo-473.webp?v=2" alt=""></div>
+        <div class="shot shot--sm" aria-hidden="true"><img loading="lazy" decoding="async" src="assets/img/photo-2.webp" alt=""></div>
+        <div class="shot shot--md" aria-hidden="true"><img loading="lazy" decoding="async" src="assets/img/photo-322.webp" alt=""></div>
+        <div class="shot shot--lg" aria-hidden="true"><img loading="lazy" decoding="async" src="assets/img/photo-7.webp?v=2" alt=""></div>
+        <div class="shot shot--sm" aria-hidden="true"><img loading="lazy" decoding="async" src="assets/img/photo-145.webp" alt=""></div>
+        <div class="shot shot--md" aria-hidden="true"><img loading="lazy" decoding="async" src="assets/img/photo-225.webp" alt=""></div>
+        <div class="shot shot--lg" aria-hidden="true"><img loading="lazy" decoding="async" src="assets/img/photo-21.webp?v=2" alt=""></div>
       </div>
     </div>
     <div class="shots-caption">
@@ -235,17 +236,17 @@
 
     <div class="team__photo-col">
       <div class="team__photo-stack">
-        <div class="team__photo" data-team-index="0"><img src="assets/img/photo-zhenya.webp" alt="Женя"></div>
-        <div class="team__photo" data-team-index="1"><img src="assets/img/photo-vitalya.webp" alt="Виталя"></div>
-        <div class="team__photo" data-team-index="2"><img src="assets/img/photo-max.webp" alt="Макс"></div>
-        <div class="team__photo" data-team-index="3"><img src="assets/img/photo-egor.webp" alt="Егор"></div>
+        <div class="team__photo" data-team-index="0"><img loading="lazy" decoding="async" src="assets/img/photo-zhenya.webp" alt="Женя"></div>
+        <div class="team__photo" data-team-index="1"><img loading="lazy" decoding="async" src="assets/img/photo-vitalya.webp" alt="Виталя"></div>
+        <div class="team__photo" data-team-index="2"><img loading="lazy" decoding="async" src="assets/img/photo-max.webp?v=2" alt="Макс"></div>
+        <div class="team__photo" data-team-index="3"><img loading="lazy" decoding="async" src="assets/img/photo-egor.webp?v=2" alt="Егор"></div>
       </div>
     </div>
   </section>
 
   <section class="site-footer">
     <div class="site-footer__media">
-      <video src="assets/video/loop.mp4" autoplay muted loop playsinline></video>
+      <video data-lazy-src="assets/video/loop.mp4?v=2" poster="assets/img/loop-poster.webp" muted loop playsinline preload="none"></video>
     </div>
     <div class="site-footer__content">
       <div class="footer-blocks">
@@ -285,8 +286,9 @@
 <script src="assets/js/smooth-scroll.js?v=1"></script>
 <script src="assets/js/team-photo-scrub.js?v=6"></script>
 <script src="assets/js/reveal-lines.js?v=4"></script>
-<script src="assets/js/marquee.js?v=1" defer></script>
+<script src="assets/js/marquee.js?v=2" defer></script>
 <script src="assets/js/text-scramble.js?v=3"></script>
 <script src="assets/js/nav-toggle.js?v=1"></script>
+<script src="assets/js/lazy-video.js?v=1"></script>
 </body>
 </html>
