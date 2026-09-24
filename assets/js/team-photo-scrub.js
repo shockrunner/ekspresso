@@ -71,11 +71,8 @@
     update();
   }
 
-  // Same load-time safety as the text reveal: querying layout before the
-  // page has painted once can read unstable geometry.
-  if (document.readyState === 'complete') {
-    start();
-  } else {
-    window.addEventListener('load', start);
-  }
+  // Start after the first layout pass, not window 'load' (which waits on
+  // every image and can be very slow on mobile data); the team section's
+  // geometry is fixed-size and doesn't depend on images arriving.
+  requestAnimationFrame(() => requestAnimationFrame(start));
 })();

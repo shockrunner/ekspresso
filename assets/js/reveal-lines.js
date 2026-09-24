@@ -72,13 +72,10 @@
     scrollGroups.forEach((group) => observer.observe(group));
   }
 
-  // Wait for the page to fully load before wiring up scroll-triggered
-  // reveals: setting up the observer earlier (before images/fonts have
-  // settled the layout) can make its first intersection check unreliable
-  // and mark far-off-screen headings as revealed immediately.
-  if (document.readyState === 'complete') {
-    setupScrollReveal();
-  } else {
-    window.addEventListener('load', setupScrollReveal);
-  }
+  // Start after the first layout pass rather than on window 'load':
+  // 'load' waits for every image on the page, which on a phone over
+  // mobile data can take a minute or more, leaving all scroll-revealed
+  // text hidden until then. Every photo sits in a box with a fixed size
+  // or aspect-ratio, so the layout is already final before images load.
+  requestAnimationFrame(() => requestAnimationFrame(setupScrollReveal));
 })();
