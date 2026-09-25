@@ -331,14 +331,19 @@ main {
   gap: 1.5rem;
 }
 .collage__text--left .heading { width: 42.5rem; }
+/* Anchored to the container's right edge and sized to its longest line,
+   so the text block sits flush against the right guide. */
 .collage__text--right {
-  inset: 79.35% 0 0 48.7%;
+  top: 79.35%;
+  right: 0;
+  bottom: 0;
+  width: max-content;
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
 }
-.collage__text--right .heading { white-space: nowrap; }
-.collage__text--right .body-text { width: 46.75rem; }
+.collage__text--right .heading,
+.collage__text--right .body-text { white-space: nowrap; }
 
 .collage__photos {
   position: absolute;
