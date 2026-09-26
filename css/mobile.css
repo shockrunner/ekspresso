@@ -265,15 +265,20 @@
     top: auto;
     height: auto;
     margin-top: 2rem;
+    /* Wide photo on top, then two independent columns of different height */
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: start;
+    gap: 0.5rem;
+  }
+  .collage__photos > .cph--1 { grid-column: 1 / -1; }
+  .collage__photos-col {
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
+    min-width: 0;
   }
-  .collage__photos-col {
-    display: flex;
-    gap: 0.5rem;
-  }
-  .collage__photos-col .cph { flex: 1 1 0; min-width: 0; }
+  .collage__photos-col .cph { width: 100%; }
   .cph { position: static; transform: none; }
   .cph--1 { aspect-ratio: 359 / 240; }
   .cph--3 { aspect-ratio: 176 / 240; }
