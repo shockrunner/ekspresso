@@ -54,13 +54,16 @@
   });
 
   // Hero content is visible the moment the page opens, so it reveals right
-  // away rather than waiting on scroll position.
+  // away rather than waiting on scroll position — or, with the preloader,
+  // as soon as the preloader's square starts opening onto the hero.
   const immediateGroups = document.querySelectorAll('[data-reveal-immediate]');
-  requestAnimationFrame(() => {
+  const revealHero = () => requestAnimationFrame(() => {
     requestAnimationFrame(() => {
       immediateGroups.forEach((group) => group.classList.add('is-revealed'));
     });
   });
+  if (window.preloaderDone) window.preloaderDone.then(revealHero);
+  else revealHero();
 
   const scrollGroups = document.querySelectorAll('[data-reveal-lines]:not([data-reveal-immediate])');
   if (!scrollGroups.length) return;

@@ -614,6 +614,39 @@ main {
 .footer-dev { margin: 0; text-decoration: underline; }
 .footer-bottom p { margin: 0; }
 
+/* ===== preloader (photos flash in a 280px square, then it unmasks the hero) ===== */
+
+html.is-preloading { overflow: hidden; }
+
+.preloader {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg);
+}
+.preloader__frame {
+  position: relative;
+  width: 280px;
+  height: 280px;
+}
+.preloader__frame img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  visibility: hidden;
+}
+.preloader__frame img.is-active { visibility: visible; }
+
+.hero.is-unmasking { transition: clip-path 1.1s cubic-bezier(0.76, 0, 0.24, 1); }
+@media (prefers-reduced-motion: reduce) {
+  .hero.is-unmasking { transition-duration: 0.01s; }
+}
+
 /* ===== line reveal (mask + slide-up on load) ===== */
 
 [data-reveal-lines] .line-mask {
