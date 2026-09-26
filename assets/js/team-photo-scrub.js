@@ -1,5 +1,5 @@
 (function () {
-  if (window.matchMedia('(max-width: 767px)').matches) return;
+  if (window.matchMedia('(max-width: 1199px)').matches) return;
 
   const members = [...document.querySelectorAll('.team__member[data-team-index]')];
   const photos = document.querySelectorAll('.team__photo[data-team-index]');

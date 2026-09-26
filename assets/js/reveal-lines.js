@@ -3,7 +3,7 @@
   // is off there), so its quotes, authors and body texts become ordinary
   // scroll-revealed groups like every other text on the page. The static
   // is-revealed/is-current on the first member is desktop-only state.
-  if (window.matchMedia('(max-width: 767px)').matches) {
+  if (window.matchMedia('(max-width: 1199px)').matches) {
     document.querySelectorAll('.team__member-text').forEach((t) => {
       t.classList.remove('is-revealed', 'is-current');
     });
@@ -18,7 +18,7 @@
   // .line-mask chunks at desktop's much wider column width. At mobile
   // widths those fixed break points are wrong (a word that could still
   // fit on a line gets pushed down because it belongs to the next
-  // hard-coded chunk instead of reflowing naturally). Below 768px,
+  // hard-coded chunk instead of reflowing naturally). Below 1200px (phones and tablets),
   // collapse each multi-chunk group into a single chunk so the browser
   // wraps the whole thing exactly like a normal paragraph, matching the
   // Figma mobile frame's natural text wrap. The hero already reads
@@ -26,7 +26,7 @@
   // Team member quotes/body-text use their own reveal mechanism (class
   // toggling in team-photo-scrub.js, no data-reveal-lines attribute),
   // so they are included here explicitly as well.
-  if (window.matchMedia('(max-width: 767px)').matches) {
+  if (window.matchMedia('(max-width: 1199px)').matches) {
     const mergeGroups = document.querySelectorAll(
       '[data-reveal-lines], .team__member-text .heading, .team__member-text .body-text'
     );

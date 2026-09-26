@@ -345,11 +345,13 @@ main {
 .collage__text--right .heading,
 .collage__text--right .body-text { white-space: nowrap; }
 
+/* The photos bleed past the content column; on narrow laptops (~1200-1320px)
+   that bleed is capped so the outer photos stay 1rem inside the screen. */
 .collage__photos {
   position: absolute;
   top: 0;
-  left: -7.18%;
-  right: -7.18%;
+  left: max(-7.18%, calc((100% - 100vw) / 2 + 1rem));
+  right: max(-7.18%, calc((100% - 100vw) / 2 + 1rem));
   height: 64.4375rem;
 }
 

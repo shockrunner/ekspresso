@@ -1,11 +1,14 @@
 /*
-  Mobile layout (Figma "mobile" frame, 375px reference).
+  Mobile layout (Figma "mobile" frame, 375px reference), also used for
+  tablets up to 1199px: the desktop layout needs ~1150px of width, and
+  shrinking it further makes the text unreadably small, so tablets get
+  the single-column layout (with tablet tweaks at the end of this file).
   Scoped entirely inside this breakpoint so the desktop styles in style.css
-  are untouched above 767px. Root font-size is re-based to the mobile
+  are untouched from 1200px up. Root font-size is re-based to the mobile
   frame (1rem = 16px at 375px width) instead of style.css's 1920px-based
   clamp, so px values from the Figma mobile frame convert to rem by /16.
 */
-@media (max-width: 767px) {
+@media (max-width: 1199px) {
   html {
     font-size: clamp(14px, calc(100vw * 16 / 375), 18px);
   }
@@ -232,6 +235,13 @@
     aspect-ratio: 351 / 364;
     margin-bottom: 2rem;
   }
+  /* Fill the frame edge to edge (the desktop auto-width image is narrower than this box) */
+  .intro__media img,
+  .intro__media:hover img {
+    left: 0;
+    width: 100%;
+    transform: none;
+  }
 
   .intro__content .intro__routes { order: 3; gap: 1.25rem; }
   .intro__routes > p { font-size: 0.875rem; }
@@ -424,4 +434,39 @@
   .footer-block .body-text { font-size: 0.875rem; }
 
   .footer-bottom { font-size: 0.875rem; }
+}
+
+/*
+  Tablets (iPad mini, iPad Air, Surface Pro in portrait, small landscape
+  tablets): the same single-column layout as phones, but the content sits
+  in a centered column of book-page width with roomier margins, instead
+  of stretching edge to edge. The hero and the photo strip stay full-bleed.
+*/
+@media (min-width: 768px) and (max-width: 1199px) {
+  main { gap: 7rem; }
+
+  .intro,
+  .collage,
+  .ritual,
+  .random-shots,
+  .team,
+  .site-footer {
+    max-width: 44rem;
+    margin-inline: auto;
+    padding: 0 2rem;
+  }
+
+  .hero {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+  .logo { left: calc(2rem + env(safe-area-inset-left, 0px)); top: calc(1.25rem + env(safe-area-inset-top, 0px)); }
+  .nav-toggle { right: calc(2rem + env(safe-area-inset-right, 0px)); top: calc(1.25rem + env(safe-area-inset-top, 0px)); }
+
+  .shot--sm { width: 10.5rem; height: 10.625rem; }
+  .shot--md { width: 16.25rem; height: 22.3125rem; }
+  .shot--lg { width: 27.625rem; height: 33.875rem; }
+  .shot { margin-right: 6rem; }
+
+  .site-footer { margin-bottom: 2rem; }
 }
