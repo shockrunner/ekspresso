@@ -4,8 +4,8 @@
   // a window onto the hero and grows to the full screen.
   // Loaded synchronously right after the preloader markup, so it starts
   // before the rest of the page is parsed.
-  const FRAME_MS = 80; // how long each photo stays on screen
-  const MIN_MS = 1000; // show the photos at least this long
+  const FRAME_MS = 100; // how long each photo stays on screen
+  const MIN_MS = 1200; // show the photos at least this long (one full pass)
   const MAX_MS = 8000; // never hold the page longer than this
   const REVEAL_MS = 1100; // square mask growing to full screen (matches CSS)
 
